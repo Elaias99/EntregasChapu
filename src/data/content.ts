@@ -18,7 +18,7 @@ export const brand = {
   },
   images: {
     logo: "/assets/entregas-chapu-logo-wide.jpeg",
-    van: "/assets/entregas-chapu-hero.png",
+    van: "/assets/entregas-chapu-van.jpeg",
     routes: "/assets/entregas-chapu-routes.jpeg",
     operations: "/assets/entregas-chapu-operations.jpeg"
   }
