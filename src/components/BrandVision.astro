@@ -1,0 +1,35 @@
+---
+import { missionValues } from "@data/content";
+---
+
+<section class="section section-light" aria-labelledby="vision-title">
+  <div class="content-shell vision-layout">
+    <div class="section-heading">
+      <p class="eyebrow">Nuestra visión</p>
+      <h2 id="vision-title">Un aliado logístico confiable para la región.</h2>
+      <p>
+        En Entregas Chapu trabajamos para ser un aliado logístico confiable para empresas y particulares, entregando soluciones rápidas, seguras y humanas.
+      </p>
+      <p>
+        Cada envío representa una responsabilidad, y nuestro compromiso es cumplir con puntualidad, comunicación clara y atención personalizada.
+      </p>
+    </div>
+
+    <div class="vision-stack">
+      <article>
+        <span>Misión</span>
+        <p>Resolver necesidades logísticas con rapidez, seguridad y atención cercana.</p>
+      </article>
+      <article>
+        <span>Visión</span>
+        <p>Ser una marca logística regional reconocida por su compromiso y confiabilidad.</p>
+      </article>
+      <article>
+        <span>Valores</span>
+        <div class="value-list">
+          {missionValues.map((value) => <strong>{value}</strong>)}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

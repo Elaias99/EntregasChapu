@@ -1,0 +1,27 @@
+---
+import { quoteSteps, whatsappLink } from "@data/content";
+---
+
+<section class="section section-navy process-section" aria-labelledby="quote-title">
+  <div class="content-shell">
+    <div class="section-heading section-heading-invert section-heading-center">
+      <p class="eyebrow">Cotización</p>
+      <h2 id="quote-title">Cotiza tu envío en minutos.</h2>
+      <p>Coordinamos tu envío de forma simple y personalizada.</p>
+    </div>
+
+    <div class="process-grid">
+      {quoteSteps.map((step) => (
+        <article class="process-card">
+          <p>{step}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="center-action">
+      <!-- <a class="btn btn-primary" href={whatsappLink("quote", "Hola, quiero cotizar ahora mi envío.")}>
+        Cotizar ahora por WhatsApp
+      </a> -->
+    </div>
+  </div>
+</section>

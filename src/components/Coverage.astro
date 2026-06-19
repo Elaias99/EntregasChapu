@@ -1,0 +1,33 @@
+---
+import { coverageZones, whatsappLink } from "@data/content";
+import ChileCoverageMap from "@components/ChileCoverageMap.astro";
+---
+
+<section id="cobertura" class="section section-light coverage-section" aria-labelledby="coverage-title">
+  <div class="content-shell coverage-layout">
+    <div>
+      <div class="section-heading">
+
+        <h2 id="coverage-title">
+          Llegamos donde tu entrega necesita estar.
+        </h2>
+
+        <p>
+          Consulta por disponibilidad y tiempos de entrega según la zona. La operación conecta
+          Atacama y Coquimbo con rutas regionales y servicios coordinados.
+        </p>
+      </div>
+
+      <div class="zone-grid" aria-label="Zonas de cobertura">
+        {coverageZones.map((zone) => <span>{zone}</span>)}
+      </div>
+
+    </div>
+
+    <div class="coverage-map-panel">
+      <ChileCoverageMap />
+
+
+    </div>
+  </div>
+</section>

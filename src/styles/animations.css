@@ -1,0 +1,593 @@
+/* Motion-only layer. Keep structure, copy, sizing, and palette in global.css. */
+@media (prefers-reduced-motion: no-preference) {
+  .site-header {
+    animation: ec-header-drop 680ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-section {
+    isolation: isolate;
+    animation: ec-hero-drift 14s ease-in-out infinite alternate;
+  }
+
+  .hero-section::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(
+      112deg,
+      transparent 0%,
+      transparent 36%,
+      rgba(255, 255, 255, 0.16) 48%,
+      transparent 60%,
+      transparent 100%
+    );
+    transform: translateX(-120%);
+    animation: ec-hero-sweep 1.7s ease-out 360ms both;
+  }
+
+  .hero-content {
+    z-index: 1;
+    animation: ec-reveal-up 760ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-backdrop {
+    transform-origin: left center;
+    animation: ec-line-grow 920ms cubic-bezier(0.2, 0.8, 0.2, 1) 260ms both;
+  }
+
+  .trust-list li,
+  .service-card,
+  .zone-grid span,
+  .coverage-map-panel,
+  .metric-item,
+  .benefit-list li,
+  .process-card,
+  .contact-form,
+  .site-footer {
+    animation: ec-reveal-up 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .trust-list li:nth-child(2),
+  .service-card:nth-child(2),
+  .zone-grid span:nth-child(2),
+  .metric-item:nth-child(2),
+  .benefit-list li:nth-child(2),
+  .process-card:nth-child(2) {
+    animation-delay: 90ms;
+  }
+
+  .trust-list li:nth-child(3),
+  .service-card:nth-child(3),
+  .zone-grid span:nth-child(3),
+  .metric-item:nth-child(3),
+  .benefit-list li:nth-child(3),
+  .process-card:nth-child(3) {
+    animation-delay: 160ms;
+  }
+
+  .service-card:nth-child(4),
+  .zone-grid span:nth-child(4),
+  .benefit-list li:nth-child(4),
+  .process-card:nth-child(4) {
+    animation-delay: 230ms;
+  }
+
+  .service-card:nth-child(5),
+  .zone-grid span:nth-child(5),
+  .benefit-list li:nth-child(5) {
+    animation-delay: 300ms;
+  }
+
+  .service-card:nth-child(6),
+  .zone-grid span:nth-child(6),
+  .benefit-list li:nth-child(6) {
+    animation-delay: 370ms;
+  }
+
+  .service-card,
+  .testimonial-card,
+  .branch-card,
+  .process-card,
+  .coverage-map-panel,
+  .contact-form {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease;
+  }
+
+  .service-card:hover,
+  .testimonial-card:hover,
+  .branch-card:hover,
+  .process-card:hover,
+  .coverage-map-panel:hover,
+  .contact-form:hover {
+    transform: translateY(-4px);
+  }
+
+  .coverage-map-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .coverage-map-panel::before,
+  .coverage-map-panel::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    pointer-events: none;
+  }
+
+  .coverage-map-panel::before {
+    background:
+      radial-gradient(circle at 52% 24%, rgba(201, 8, 19, 0.13), transparent 26%),
+      radial-gradient(circle at 48% 78%, rgba(6, 27, 58, 0.12), transparent 32%);
+    opacity: 0.72;
+    animation: ec-map-ambient 6.5s ease-in-out infinite;
+  }
+
+  .coverage-map-panel::after {
+    background: linear-gradient(
+      112deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.72) 49%,
+      transparent 58%,
+      transparent 100%
+    );
+    transform: translateX(-130%);
+    animation: ec-map-sheen 4.8s ease-in-out 900ms infinite;
+  }
+
+  .coverage-map-panel .chile-map {
+    position: relative;
+    z-index: 1;
+  }
+
+  .coverage-map-panel .chile-map__region {
+    animation: ec-region-breathe 5.8s ease-in-out infinite;
+  }
+
+  .coverage-map-panel .chile-map__region--coquimbo {
+    animation-delay: 700ms;
+  }
+
+  .coverage-map-panel .chile-map__route-halo {
+    stroke-dasharray: 126;
+    stroke-dashoffset: 126;
+    animation:
+      ec-route-draw 1.6s ease-out 280ms both,
+      ec-route-halo-breathe 3.6s ease-in-out 1.7s infinite;
+  }
+
+  .chile-map__route-line {
+    animation:
+      ec-route-flow 2.2s linear infinite,
+      ec-route-glow 3.2s ease-in-out infinite;
+  }
+
+  .chile-map__pin-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ec-pin-pulse 2.2s ease-out infinite;
+  }
+
+  .chile-map__pin-core {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ec-pin-core 2.2s ease-in-out infinite;
+  }
+
+  .chile-map__label {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ec-map-label-float 4.6s ease-in-out infinite;
+  }
+
+  .chile-map__stop:nth-child(2) .chile-map__pin-ring {
+    animation-delay: 180ms;
+  }
+
+  .chile-map__stop:nth-child(3) .chile-map__pin-ring {
+    animation-delay: 360ms;
+  }
+
+  .chile-map__stop:nth-child(4) .chile-map__pin-ring {
+    animation-delay: 540ms;
+  }
+
+  .chile-map__stop:nth-child(5) .chile-map__pin-ring {
+    animation-delay: 720ms;
+  }
+
+  .chile-map__stop:nth-child(6) .chile-map__pin-ring {
+    animation-delay: 900ms;
+  }
+
+  .chile-map__stop:nth-child(7) .chile-map__pin-ring {
+    animation-delay: 1080ms;
+  }
+
+  .chile-map__stop:nth-child(8) .chile-map__pin-ring {
+    animation-delay: 1260ms;
+  }
+
+  .chile-map__stop:nth-child(2) .chile-map__pin-core,
+  .chile-map__stop:nth-child(2) .chile-map__label {
+    animation-delay: 180ms;
+  }
+
+  .chile-map__stop:nth-child(3) .chile-map__pin-core,
+  .chile-map__stop:nth-child(3) .chile-map__label {
+    animation-delay: 360ms;
+  }
+
+  .chile-map__stop:nth-child(4) .chile-map__pin-core,
+  .chile-map__stop:nth-child(4) .chile-map__label {
+    animation-delay: 540ms;
+  }
+
+  .chile-map__stop:nth-child(5) .chile-map__pin-core,
+  .chile-map__stop:nth-child(5) .chile-map__label {
+    animation-delay: 720ms;
+  }
+
+  .chile-map__stop:nth-child(6) .chile-map__pin-core,
+  .chile-map__stop:nth-child(6) .chile-map__label {
+    animation-delay: 900ms;
+  }
+
+  .chile-map__stop:nth-child(7) .chile-map__pin-core,
+  .chile-map__stop:nth-child(7) .chile-map__label {
+    animation-delay: 1080ms;
+  }
+
+  .chile-map__stop:nth-child(8) .chile-map__pin-core,
+  .chile-map__stop:nth-child(8) .chile-map__label {
+    animation-delay: 1260ms;
+  }
+
+  .coverage-section .zone-grid span {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coverage-section .zone-grid span::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.84) 50%,
+      transparent 62%,
+      transparent 100%
+    );
+    transform: translateX(-135%);
+    animation: ec-zone-chip-sheen 5.4s ease-in-out infinite;
+  }
+
+  .coverage-section .zone-grid span:nth-child(2n)::after {
+    animation-delay: 560ms;
+  }
+
+  .coverage-section .zone-grid span:nth-child(3n)::after {
+    animation-delay: 1080ms;
+  }
+
+  .process-section {
+    overflow: hidden;
+  }
+
+  .process-section .process-grid {
+    overflow: hidden;
+    padding-block: 4px;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 7%,
+      #000 93%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 7%,
+      #000 93%,
+      transparent 100%
+    );
+  }
+
+  .process-section .process-grid:hover .process-card {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 721px) {
+    .process-section .process-card {
+      will-change: transform, opacity;
+      animation: ec-process-card-loop 12s ease-in-out infinite;
+      animation-timeline: auto;
+    }
+
+    .process-section .process-card:nth-child(2),
+    .process-section .process-card:nth-child(3),
+    .process-section .process-card:nth-child(4) {
+      animation-delay: 0s;
+    }
+  }
+
+  .site-nav.is-open {
+    transform-origin: top center;
+    animation: ec-menu-open 220ms ease-out both;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-heading,
+    .service-card,
+    .zone-grid span,
+    .coverage-map-panel,
+    .metric-item,
+    .benefit-list li,
+    .process-card,
+    .contact-form {
+      animation-timeline: view();
+      animation-range: entry 8% cover 28%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes ec-header-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ec-hero-drift {
+  from {
+    background-position: center right;
+  }
+
+  to {
+    background-position: 58% center;
+  }
+}
+
+@keyframes ec-hero-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+@keyframes ec-line-grow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ec-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ec-route-flow {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+@keyframes ec-route-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ec-route-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ec-route-halo-breathe {
+  0%,
+  100% {
+    opacity: 0.56;
+  }
+
+  50% {
+    opacity: 0.92;
+  }
+}
+
+@keyframes ec-pin-pulse {
+  0%,
+  100% {
+    opacity: 0.86;
+    transform: scale(1);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1.38);
+  }
+}
+
+@keyframes ec-pin-core {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.22);
+  }
+}
+
+@keyframes ec-map-ambient {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ec-map-sheen {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translateX(-130%);
+  }
+
+  54% {
+    opacity: 0.65;
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+    transform: translateX(130%);
+  }
+}
+
+@keyframes ec-region-breathe {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+    opacity: 0.96;
+  }
+
+  50% {
+    filter: brightness(1.08) saturate(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes ec-map-label-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.7px);
+  }
+}
+
+@keyframes ec-zone-chip-sheen {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(-135%);
+  }
+
+  68% {
+    opacity: 0.62;
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateX(135%);
+  }
+}
+
+@keyframes ec-process-card-loop {
+  0%,
+  12% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translateX(calc(100vw + 48px));
+  }
+
+  48% {
+    opacity: 0;
+    transform: translateX(calc(100vw + 48px));
+  }
+
+  49% {
+    opacity: 0;
+    transform: translateX(calc(-100vw - 48px));
+  }
+
+  58% {
+    opacity: 1;
+    transform: translateX(calc(-72vw));
+  }
+
+  88%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ec-menu-open {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}

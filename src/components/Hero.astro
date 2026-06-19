@@ -1,0 +1,19 @@
+---
+import { brand, trustSignals, whatsappLink } from "@data/content";
+---
+
+<section id="inicio" class="hero-section" aria-labelledby="hero-title">
+  <div class="hero-backdrop" aria-hidden="true"></div>
+  <div class="hero-content content-shell">
+    <!-- <p class="eyebrow">{brand.tagline}</p> -->
+    <h1 id="hero-title">{brand.name}</h1>
+    <p class="hero-promise">{brand.promise}</p>
+    <p class="hero-copy">{brand.detail}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href={whatsappLink("quote", "Hola, quiero cotizar un envío por WhatsApp.")}>
+        Cotizar por WhatsApp
+      </a>
+      <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</section>

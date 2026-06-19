@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Hero from "@components/Hero.astro";
+import Services from "@components/Services.astro";
+import Coverage from "@components/Coverage.astro";
+import WhyChoose from "@components/WhyChoose.astro";
+import QuoteProcess from "@components/QuoteProcess.astro";
+import ContactForm from "@components/ContactForm.astro";
+import Footer from "@components/Footer.astro";
+import { brand } from "@data/content";
+---
+
+<BaseLayout
+  title={`${brand.name} | ${brand.promise}`}
+  description="Landing para Entregas Chapu: courier, última milla, valijas corporativas, documentos, encomiendas y cobertura regional en Atacama y Coquimbo."
+>
+  <Header />
+
+  <main>
+    <Hero />
+    <Services />
+    <Coverage />
+    <WhyChoose />
+    <QuoteProcess />
+    <ContactForm />
+  </main>
+
+  <Footer />
+</BaseLayout>

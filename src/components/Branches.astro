@@ -1,0 +1,26 @@
+---
+import { branches, whatsappLink } from "@data/content";
+---
+
+<section id="sucursales" class="section section-muted" aria-labelledby="branches-title">
+  <div class="content-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Sucursales y puntos de atención</p>
+      <h2 id="branches-title">Coordinación por ciudad, retiro y disponibilidad.</h2>
+      <p>Consulta por puntos de retiro, coordinación de entregas y disponibilidad según tu ciudad.</p>
+    </div>
+
+    <div class="branch-grid">
+      {branches.map((branch) => (
+        <article class="branch-card">
+          <h3>{branch.city}</h3>
+          <p>{branch.address}</p>
+          <span>{branch.schedule}</span>
+          <a href={whatsappLink("attention", `Hola, quiero consultar por ${branch.city}.`)}>
+            Consultar por WhatsApp
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

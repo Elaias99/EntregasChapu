@@ -1,0 +1,30 @@
+---
+import { testimonials } from "@data/content";
+---
+
+<section id="opiniones" class="section section-muted" aria-labelledby="testimonials-title">
+  <div class="content-shell">
+    <div class="section-heading">
+      <p class="eyebrow">Opiniones editables</p>
+      <h2 id="testimonials-title">Clientes que confían en Entregas Chapu.</h2>
+      <p>Testimonios de ejemplo para mostrar tono comercial y confianza hasta reemplazarlos por reseñas reales.</p>
+    </div>
+
+    <div class="testimonial-summary">
+      <strong>4.9/5</strong>
+      <span>en satisfacción de clientes</span>
+    </div>
+
+    <div class="testimonial-grid">
+      {testimonials.map((testimonial) => (
+        <article class="testimonial-card">
+          <p>“{testimonial.quote}”</p>
+          <div>
+            <strong>{testimonial.author}</strong>
+            <span>{testimonial.service} · {testimonial.rating}/5</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

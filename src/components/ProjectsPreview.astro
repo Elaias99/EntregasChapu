@@ -1,0 +1,36 @@
+---
+import { brand, projects, whatsappLink } from "@data/content";
+---
+
+<section id="proyectos" class="section section-light projects-section" aria-labelledby="projects-title">
+  <div class="content-shell projects-layout">
+    <figure class="image-panel image-panel-wide">
+      <img src={brand.images.operations} alt="Operación y entregas destacadas de Entregas Chapu" loading="lazy" />
+      <figcaption>Material visual de la marca usado como referencia para servicios y operación.</figcaption>
+    </figure>
+
+    <div>
+      <div class="section-heading">
+        <p class="eyebrow">Proyectos y entregas destacadas</p>
+        <h2 id="projects-title">Servicios listos para operación recurrente.</h2>
+        <p>
+          Ejemplos editables de trabajos para mostrar capacidad operativa sin sobrecargar la página con imágenes.
+        </p>
+      </div>
+
+      <div class="project-list">
+        {projects.map((project) => (
+          <article>
+            <span>{project.category}</span>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <a class="btn btn-primary" href={whatsappLink("quote", "Hola, quiero solicitar un servicio similar.")}>
+        Solicitar un servicio similar
+      </a>
+    </div>
+  </div>
+</section>

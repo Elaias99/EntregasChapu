@@ -1,0 +1,28 @@
+---
+import { services } from "@data/content";
+---
+
+<section id="servicios" class="section section-light" aria-labelledby="services-title">
+  <div class="content-shell">
+    <div class="section-heading section-heading-center">
+      <p class="eyebrow">Servicios</p>
+
+      <h2 id="services-title">
+        Envíos, documentos y entregas regionales para empresas y particulares.
+      </h2>
+
+    </div>
+
+    <div class="service-grid">
+      {
+        services.map((service) => (
+          <article class="service-card">
+            <span class="service-tag">{service.tag}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

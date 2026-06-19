@@ -1,0 +1,180 @@
+/* Contact section presentation layer. No copy or structure changes. */
+#contacto {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(110deg, rgba(201, 8, 19, 0.035), transparent 36%),
+    linear-gradient(250deg, rgba(6, 27, 58, 0.045), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+#contacto .contact-layout {
+  align-items: center;
+  gap: clamp(38px, 6vw, 76px);
+}
+
+#contacto .section-heading {
+  position: relative;
+  max-width: 520px;
+  padding-left: 20px;
+}
+
+#contacto .section-heading::before {
+  position: absolute;
+  top: 7px;
+  bottom: 8px;
+  left: 0;
+  width: 4px;
+  content: "";
+  background: linear-gradient(180deg, var(--red), rgba(201, 8, 19, 0.18));
+  border-radius: 999px;
+}
+
+#contacto .section-heading p {
+  max-width: 470px;
+}
+
+#contacto .btn-dark {
+  margin-top: 4px;
+  border-color: rgba(6, 27, 58, 0.14);
+  box-shadow: 0 12px 28px rgba(6, 27, 58, 0.08);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+#contacto .btn-dark:hover {
+  border-color: rgba(201, 8, 19, 0.26);
+  box-shadow: 0 16px 34px rgba(6, 27, 58, 0.12);
+  transform: translateY(-2px);
+}
+
+.contact-form {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(6, 27, 58, 0.13);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.94)),
+    var(--white);
+  box-shadow:
+    0 26px 58px rgba(6, 27, 58, 0.12),
+    0 4px 18px rgba(6, 27, 58, 0.05);
+}
+
+.contact-form::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  content: "";
+  background: linear-gradient(90deg, var(--red), var(--navy));
+}
+
+.contact-form label {
+  position: relative;
+}
+
+.contact-form label:focus-within {
+  color: var(--red);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  min-height: 50px;
+  border-color: rgba(6, 27, 58, 0.14);
+  background: rgba(244, 247, 251, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+  border-color: rgba(6, 27, 58, 0.28);
+  background: #ffffff;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  box-shadow:
+    0 0 0 4px rgba(201, 8, 19, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(19, 33, 55, 0.54);
+}
+
+.contact-form button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+  box-shadow:
+    0 16px 34px rgba(201, 8, 19, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.contact-form button[type="submit"]::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+  transform: translateX(-130%);
+  transition: transform 520ms ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  box-shadow:
+    0 20px 42px rgba(201, 8, 19, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+.contact-form button[type="submit"]:hover::after {
+  transform: translateX(130%);
+}
+
+@media (max-width: 1040px) {
+  #contacto .section-heading {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 720px) {
+  #contacto {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  }
+
+  #contacto .section-heading {
+    padding-left: 14px;
+  }
+
+  .contact-form {
+    box-shadow: 0 18px 38px rgba(6, 27, 58, 0.1);
+  }
+}

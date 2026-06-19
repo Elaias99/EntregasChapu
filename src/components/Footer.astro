@@ -1,0 +1,49 @@
+---
+import { brand, coverageZones, services, whatsappLink } from "@data/content";
+
+const footerServices = services
+  .slice(0, 5)
+  .map((service) => ("title" in service && service.title ? service.title : service.tag));
+---
+
+<footer class="site-footer">
+  <div class="content-shell footer-grid">
+    <div>
+      <a class="footer-brand" href="#inicio">{brand.name}</a>
+      <p>{brand.promise}</p>
+      <p>{brand.detail}</p>
+    </div>
+
+    <div>
+      <h2>Servicios</h2>
+      <ul>
+        {footerServices.map((service) => <li>{service}</li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h2>Cobertura</h2>
+      <ul>
+        {coverageZones.slice(0, 6).map((zone) => <li>{zone}</li>)}
+      </ul>
+    </div>
+
+    <div>
+      <h2>Contacto</h2>
+      <p>Atención y cotizaciones por WhatsApp.</p>
+      <p>WhatsApp cotizaciones: {brand.phones.quote}</p>
+      <p>WhatsApp atención: {brand.phones.attention}</p>
+      <p>{brand.email}</p>
+      <p>{brand.social}</p>
+
+      <a href={whatsappLink("quote", "Hola, quiero cotizar un envío con Entregas Chapu.")}>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom content-shell">
+    <span>© 2026 Entregas Chapu. Todos los derechos reservados.</span>
+    <span>Courier, última milla y cobertura regional en Atacama y Coquimbo.</span>
+  </div>
+</footer>

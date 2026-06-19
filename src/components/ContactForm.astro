@@ -1,0 +1,109 @@
+---
+import { whatsappLink } from "@data/content";
+
+const formWhatsappNumber = "56978843562";
+---
+
+<section id="contacto" class="section section-light" aria-labelledby="contact-title">
+  <div class="content-shell contact-layout">
+    <div class="section-heading">
+      <p class="eyebrow">Contacto</p>
+      <h2 id="contact-title">Solicita retiro, cotización o revisión de cobertura.</h2>
+      <p>
+        Completa los datos principales o usa WhatsApp si necesitas una respuesta más directa.
+      </p>
+      <!-- <a class="btn btn-secondary btn-dark" href={whatsappLink("quote", "Hola, prefiero cotizar por WhatsApp.")}>
+        Prefiero cotizar por WhatsApp
+      </a> -->
+    </div>
+
+    <form class="contact-form" action="#" method="post" data-whatsapp-contact-form data-whatsapp-number={formWhatsappNumber}>
+      <label>
+        Nombre
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" />
+      </label>
+      <label>
+        Empresa <span>opcional</span>
+        <input type="text" name="empresa" placeholder="Nombre de la empresa" autocomplete="organization" />
+      </label>
+      <label>
+        Teléfono
+        <input type="tel" name="telefono" placeholder="+56 9 ..." autocomplete="tel" />
+      </label>
+      <label>
+        Ciudad de origen
+        <input type="text" name="origen" placeholder="Ej. Copiapó" />
+      </label>
+      <label>
+        Ciudad de destino
+        <input type="text" name="destino" placeholder="Ej. Coquimbo" />
+      </label>
+      <label>
+        Tipo de servicio
+        <select name="servicio">
+          <option>Courier</option>
+          <option>Última milla</option>
+          <option>Valijas corporativas</option>
+          <option>Productos valorados</option>
+          <option>Trámites y documentos</option>
+        </select>
+      </label>
+      <label class="full-field">
+        Mensaje
+        <textarea name="mensaje" rows="5" placeholder="Cuéntanos qué necesitas enviar."></textarea>
+      </label>
+      <button class="btn btn-primary full-field" type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const contactForms = document.querySelectorAll("[data-whatsapp-contact-form]");
+
+  const getFieldValue = (data, name) => {
+    const value = data.get(name);
+    return typeof value === "string" ? value.trim() : "";
+  };
+
+  const withFallback = (value) => value || "No indicado";
+
+  contactForms.forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const whatsappNumber = form.dataset.whatsappNumber;
+      if (!whatsappNumber) return;
+
+      const data = new FormData(form);
+      const messageLines = [
+        "Hola, quiero solicitar un servicio con Entregas Chapu.",
+        "",
+        `Nombre: ${withFallback(getFieldValue(data, "nombre"))}`,
+        `Empresa: ${withFallback(getFieldValue(data, "empresa"))}`,
+        `Telefono: ${withFallback(getFieldValue(data, "telefono"))}`,
+        `Ciudad de origen: ${withFallback(getFieldValue(data, "origen"))}`,
+        `Ciudad de destino: ${withFallback(getFieldValue(data, "destino"))}`,
+        `Tipo de servicio: ${withFallback(getFieldValue(data, "servicio"))}`,
+        "",
+        `Mensaje: ${withFallback(getFieldValue(data, "mensaje"))}`
+      ];
+
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join("\n"))}`;
+      const isLocalPreview = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+      const shouldPreview = isLocalPreview && new URLSearchParams(window.location.search).has("previewWhatsapp");
+
+      if (shouldPreview) {
+        form.dataset.whatsappPreviewUrl = whatsappUrl;
+        return;
+      }
+
+      const openedWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+      if (!openedWindow) {
+        window.location.href = whatsappUrl;
+      }
+    });
+  });
+</script>

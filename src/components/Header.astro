@@ -1,0 +1,37 @@
+---
+import { brand, navItems, whatsappLink } from "@data/content";
+---
+
+<header class="site-header" data-header>
+  <a class="brand-lockup" href="#inicio" aria-label="Ir al inicio">
+    <img src={brand.images.logo} alt="Logo Entregas Chapu" width="220" height="126" />
+    <span>{brand.name}</span>
+  </a>
+
+  <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">
+    Menú
+  </button>
+
+  <nav id="site-navigation" class="site-nav" aria-label="Navegación principal">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+
+  <a
+    class="header-cta"
+    href={whatsappLink("quote", "Hola, quiero cotizar un envío con Entregas Chapu.")}
+  >
+    Cotizar envío
+  </a>
+</header>
+
+<script>
+  const header = document.querySelector("[data-header]");
+  const toggle = header?.querySelector(".menu-toggle");
+  const nav = header?.querySelector(".site-nav");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    nav?.classList.toggle("is-open", !isOpen);
+  });
+</script>
