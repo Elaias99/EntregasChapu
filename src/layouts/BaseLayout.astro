@@ -25,6 +25,21 @@ const { title, description, image = "/assets/entregas-chapu-van.jpeg" } = Astro.
     <meta property="og:type" content="website" />
     <meta property="og:image" content={image} />
     <title>{title}</title>
+
+
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18270123444"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18270123444');
+  </script>
+
+
+
+
   </head>
   <body>
     <slot />
